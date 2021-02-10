@@ -11,12 +11,21 @@ const styles = {
   },
 };
 
+function onChange(seq) {
+  console.log(`Checkbox #${seq} is clicked!`);
+}
+
 function TodoList({ todos }) {
   return (
     <ul style={styles.ul}>
       {todos.map((todo, index) => {
         return (
-          <TodoItem todo={todo} key={index} seq={index} />
+          <TodoItem
+            todo={todo}
+            key={index}
+            seq={index}
+            onChange={onChange}
+          />
         );
       })}
     </ul>

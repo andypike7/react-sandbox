@@ -28,15 +28,19 @@ const styles = {
   },
 };
 
-function TodoItem({ todo, seq }) {
+function TodoItem({ todo, seq, onChange }) {
   return (
     <li style={styles.li}>
-      <block style={styles.block}>
-        <input type="checkbox" style={styles.input} />
+      <div style={styles.block}>
+        <input
+          type="checkbox"
+          style={styles.input}
+          onChange={() => onChange(seq)}
+        />
         {seq + 1}.&nbsp;
-        {todo.firstName}. {todo.lastName}
+        {todo.firstName} {todo.lastName}
         &nbsp;is a {todo.role} at age {todo.age}.
-      </block>
+      </div>
       <button>&times;</button>
     </li>
   );
